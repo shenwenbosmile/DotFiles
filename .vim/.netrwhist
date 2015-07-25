@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/symbol/Dropbox/csc501/csc501-lab0/sys'
+let g:netrw_dirhist_2='/home/symbol/Dropbox/csc501/csc501-lab1'
+let g:netrw_dirhist_3='/home/symbol/Dropbox/csc501/csc501-lab1/sys'
+let g:netrw_dirhist_4='/home/symbol/Dropbox/csc501/csc501-lab1'
+let g:netrw_dirhist_5='/home/wenbo/Downloads/ncsuthesis-0.6/ncsuthesis-0.6/Chapter-1'
