@@ -107,3 +107,11 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" Configuration for ctrlp
+let g:ctrlp_working_path_mode = ''
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll|cmd|o|out)$',
+    \ }
+let g:ctrlp_user_command = ['ctrlp.files', 'cat %s/ctrlp.files']
+
