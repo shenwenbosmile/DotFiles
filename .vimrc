@@ -115,3 +115,28 @@ let g:ctrlp_custom_ignore = {
     \ }
 let g:ctrlp_user_command = ['ctrlp.files', 'cat %s/ctrlp.files']
 
+" vim yank to clipboard, clipboard integration
+" 1. vim --version | grep clip
+"   Make sure clipboard is include, if not
+"   sudo apt-get install vim-gtk 
+"   to reinstall vim
+" 2. http://vim.wikia.com/wiki/Mac_OS_X_clipboard_sharing#Comments
+if has('win64')|| has('win32') || has('mac')
+    " mac/windows
+    set clipboard=unnamed
+else
+    " linux
+    set clipboard=unnamedplus
+endif
+
+
+" disable continuation of comment to allow ctrl-v in insert mode
+" http://stackoverflow.com/questions/6076592/vim-set-formatoptions-being-lost
+" http://superuser.com/questions/271023/vim-can-i-disable-continuation-of-comments-to-the-next-line
+"autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+
+color desert
+set cursorline
+hi CursorLine   cterm=NONE ctermbg=green ctermfg=black
+
