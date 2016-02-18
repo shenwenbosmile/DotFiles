@@ -101,11 +101,7 @@ set nobackup
 set laststatus=2
 set statusline+=%F
 
-" set the tab to 4 space
 set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
 
 " Configuration for ctrlp
 let g:ctrlp_working_path_mode = ''
