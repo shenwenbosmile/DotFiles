@@ -133,7 +133,7 @@ endif
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    \ 'file': '\v\.(exe|so|pyc|dll|cmd|o|out)$',
+    \ 'file': '\v\.(exe|pyc|so|dll|cmd|o|out)$',
     \ }
 let g:ctrlp_user_command = ['ctrlp.files', 'cat %s/ctrlp.files']
 
