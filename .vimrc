@@ -101,13 +101,39 @@ set nobackup
 set laststatus=2
 set statusline+=%F
 
+" set the tab to 4 space
 set smartindent
+"set tabstop=4
+"set shiftwidth=4
+
+
+function! LoadCscope()
+  let db = findfile("cscope.out", ".;")
+  if (!empty(db))
+    let path = strpart(db, 0, match(db, "/cscope.out$"))
+    set nocscopeverbose " suppress 'duplicate connection' error
+    exe "cs add " . db . " " . path
+    set cscopeverbose
+  endif
+endfunction
+au BufEnter /* call LoadCscope()
+
+" clipboard integration
+" http://vim.wikia.com/wiki/Mac_OS_X_clipboard_sharing#Comments
+if has('win64')|| has('win32') || has('mac')
+    " mac/windows
+    set clipboard=unnamed
+else
+    " linux
+    set clipboard=unnamedplus
+endif
+
 
 " Configuration for ctrlp
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    \ 'file': '\v\.(exe|so|dll|cmd|o|out)$',
+    \ 'file': '\v\.(exe|so|pyc|dll|cmd|o|out)$',
     \ }
 let g:ctrlp_user_command = ['ctrlp.files', 'cat %s/ctrlp.files']
 
@@ -129,10 +155,14 @@ endif
 " disable continuation of comment to allow ctrl-v in insert mode
 " http://stackoverflow.com/questions/6076592/vim-set-formatoptions-being-lost
 " http://superuser.com/questions/271023/vim-can-i-disable-continuation-of-comments-to-the-next-line
-"autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 
 color desert
 set cursorline
+"set cursorcolumn
 hi CursorLine   cterm=NONE ctermbg=green ctermfg=black
+"hi CursorColumn   cterm=NONE ctermbg=green ctermfg=black
 
+" reload when change
+set autoread
