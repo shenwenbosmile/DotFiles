@@ -115,3 +115,9 @@ fi
 
 export JAVA_HOME=/home/wenbo/tools/jdk1.7.0_79/bin
 export PATH=$PATH:/home/wenbo/tools/jdk1.7.0_79/bin
+
+
+function vimdump {
+	~/tools/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-objdump -d $1 > vimdump.objdump
+	vim vimdump.objdump
+}
